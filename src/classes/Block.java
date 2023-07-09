@@ -1,6 +1,5 @@
 package classes;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
@@ -12,9 +11,6 @@ public class Block extends Rectangle {
     };
 
     public void render(Graphics graphicModule) {
-        graphicModule.setColor(Color.gray);
-        graphicModule.fillRect(x, y, width, height);
-        graphicModule.setColor(Color.black);
-        graphicModule.drawRect(x, y, width, height);
+        graphicModule.drawImage(Spritesheet.borderWall, x, y, 32, 32, null);
     }
 }

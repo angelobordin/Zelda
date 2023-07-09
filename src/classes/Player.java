@@ -1,6 +1,5 @@
 package classes;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
@@ -31,7 +30,8 @@ public class Player extends Rectangle {
     };
 
     public void render(Graphics graphicModule) {
-        graphicModule.setColor(Color.blue);
-        graphicModule.fillRect(x, y, width, height);
+        // graphicModule.setColor(Color.blue);
+        // graphicModule.fillRect(x, y, width, height);
+        graphicModule.drawImage(Spritesheet.playerFront, x, y, 32, 32, null);
     }
 }
