@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 public class Spritesheet {
     public static BufferedImage spritesheet;
     public static BufferedImage borderWall;
+    public static BufferedImage arrow;
     public static BufferedImage[] playerDown;
     public static BufferedImage[] playerUp;
     public static BufferedImage[] playerRight;
@@ -33,6 +34,7 @@ public class Spritesheet {
             playerLeft[0] = Spritesheet.getSprite(34, 11, 16, 16);
             playerLeft[1] = Spritesheet.getSprite(50, 11, 16, 16);
 
+            arrow = Spritesheet.getSprite(10, 185, 16, 16);
             borderWall = Spritesheet.getSprite(172, 185, 16, 16);
         } catch (IOException e) {
             e.printStackTrace();

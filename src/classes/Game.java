@@ -89,6 +89,9 @@ public class Game extends Canvas implements Runnable, KeyListener {
             case KeyEvent.VK_DOWN:
                 player.down = true;
                 break;
+            case KeyEvent.VK_Q:
+                player.shoot = true;
+                break;
         }
     };
 
