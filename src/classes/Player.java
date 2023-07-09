@@ -10,8 +10,11 @@ public class Player extends Rectangle {
     public boolean up;
     public boolean down;
 
+    public int currAnimation = 0;
+    public int currFrames = 0;
+    public int targetFrames = 20;
+
     public Player(int x, int y) {
-        // Posição do player e tamanho do sprite
         super(x, y, 32, 32);
     }
 
@@ -27,11 +30,28 @@ public class Player extends Rectangle {
         } else if (left && !World.isColliding(x - playerSpeed, y)) {
             x -= playerSpeed;
         }
+
+        currFrames++;
+        if (currFrames == targetFrames) {
+            currFrames = 0;
+            currAnimation++;
+            if (currAnimation == 2) {
+                currAnimation = 0;
+            }
+        }
     };
 
     public void render(Graphics graphicModule) {
-        // graphicModule.setColor(Color.blue);
-        // graphicModule.fillRect(x, y, width, height);
-        graphicModule.drawImage(Spritesheet.playerFront, x, y, 32, 32, null);
+        if (up) {
+            graphicModule.drawImage(Spritesheet.playerUp[currAnimation], x, y, 32, 32, null);
+        } else if (down) {
+            graphicModule.drawImage(Spritesheet.playerDown[currAnimation], x, y, 32, 32, null);
+        } else if (right) {
+            graphicModule.drawImage(Spritesheet.playerRight[currAnimation], x, y, 32, 32, null);
+        } else if (left) {
+            graphicModule.drawImage(Spritesheet.playerLeft[currAnimation], x, y, 32, 32, null);
+        } else {
+            graphicModule.drawImage(Spritesheet.playerDown[0], x, y, 32, 32, null);
+        }
     }
 }
