@@ -14,11 +14,13 @@ public class Game extends Canvas implements Runnable, KeyListener {
     public static int windowWidth = 1024;
     public static int windowHeight = 768;
     public Player player;
+    public World world;
 
     public Game() {
         this.addKeyListener(this);
         this.setPreferredSize(new Dimension(windowWidth, windowHeight));
-        player = new Player(5, 5);
+        player = new Player(32, 32);
+        world = new World();
     };
 
     public void tick() {
@@ -35,6 +37,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         Graphics graphicModule = bufferStrategy.getDrawGraphics();
         graphicModule.setColor(Color.black);
         graphicModule.fillRect(0, 0, windowWidth, windowHeight);
+        world.render(graphicModule);
         player.render(graphicModule);
 
         bufferStrategy.show();
