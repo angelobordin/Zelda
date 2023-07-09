@@ -17,15 +17,15 @@ public class Player extends Rectangle {
     }
 
     public void tick() {
-        if (up) {
+        if (up && !World.isColliding(x, y - playerSpeed)) {
             y -= playerSpeed;
-        } else if (down) {
+        } else if (down && !World.isColliding(x, y + playerSpeed)) {
             y += playerSpeed;
         }
 
-        if (right) {
+        if (right && !World.isColliding(x + playerSpeed, y)) {
             x += playerSpeed;
-        } else if (left) {
+        } else if (left && !World.isColliding(x - playerSpeed, y)) {
             x -= playerSpeed;
         }
     };
